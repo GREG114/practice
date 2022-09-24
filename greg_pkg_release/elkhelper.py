@@ -99,7 +99,7 @@ class elkhelper():
     #根据索引和ID获取单条数据
     def getdoc(self,index,id):
         url = '{}/{}/_doc/{}'.format(self.host,index,id)
-        req = requests.get(url,auth=self.auth)
+        req = requests.get(url,auth=self.auth,verify=False)
         res = json.loads(req.text)
         return res
     #单页查询,最大支持10000条数据
@@ -148,7 +148,7 @@ class elkhelper():
         }
         url = '{}/{}/_delete_by_query'.format(self.host,index)
         data = json.dumps(body,ensure_ascii=True)
-        res = requests.post(url,headers=self.headers,auth=self.auth,data=data.encode())
+        res = requests.post(url,headers=self.headers,auth=self.auth,data=data.encode(),verify=False)
         result = json.loads(res.text)
         return result
     #翻页获取数据
