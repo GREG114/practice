@@ -1,8 +1,7 @@
-from pydoc import importfile
 from greg_pkg_release.elkhelper import elkhelper
 import random
-
-elk = elkhelper("http://121.36.91.101:19200",("testman","testman"))
+#输入你的elk地址和用户信息
+elk = elkhelper("http://xxx:9200",("username","password"))
 
 
 ln=[
